@@ -1,3 +1,4 @@
+import "dotenv/config";
 import Fastify from "fastify";
 import { ServerState } from "@topntch/contracts";
 
@@ -8,8 +9,10 @@ app.get("/health", async () => {
 });
 
 async function start() {
+  const port = Number(process.env.API_PORT ?? 3001);
+
   try {
-    await app.listen({ port: 3001, host: "0.0.0.0" });
+    await app.listen({ port, host: "0.0.0.0" });
   } catch (err) {
     app.log.error(err);
     process.exit(1);
