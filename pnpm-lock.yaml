@@ -10,6 +10,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@topntch/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
       fastify:
         specifier: ^5.0.0
         version: 5.7.4

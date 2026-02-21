@@ -1,9 +1,10 @@
 import Fastify from "fastify";
+import { ServerState } from "@topntch/contracts";
 
 const app = Fastify({ logger: true });
 
 app.get("/health", async () => {
-  return { ok: true };
+  return { ok: true, exampleState: ServerState.CREATED };
 });
 
 async function start() {
